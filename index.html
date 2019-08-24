@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors!</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+
+	
+
+	function computerPlay(){
+
+		let randomNumber = Math.floor(Math.random()* 3);
+
+		if (randomNumber == 0){
+			return  "rock";
+			
+		}
+
+		else if (randomNumber == 1){
+			return  "paper";
+			
+		}
+
+		else if (randomNumber == 2){
+			return  "scissors";
+			
+		}
+
+		else {
+			return "Error Error";
+		}
+	}	
+
+
+		
+
+		
+	function playRound(playerSelection, computerSelection){
+
+		
+		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
+		computerSelection = computerPlay();
+
+
+
+		if (computerSelection == "rock" && playerSelection == "scissors"){
+			return "Rock beats scissors, the computer wins!";
+		}
+
+		else if (computerSelection == "rock" && playerSelection == "paper"){
+			return "Paper beats rock, you win!";
+		}
+
+		else if (computerSelection == "paper" && playerSelection =="rock"){
+			return "Paper beats rock, the computer wins!";
+		}
+
+		else if (computerSelection == "paper" && playerSelection =="scissors"){
+			return "Scissors beats paper, you win!";
+		}
+
+		else if (computerSelection == "scissors" && playerSelection == "rock"){
+			return "Rock beats scissors, you win!";
+		}
+
+		else if (computerSelection == "scissors" && playerSelection == "paper"){
+			return "Scissors beats paper, the computer wins!";
+		}
+
+		else {
+			alert( "Something didn't go right" );
+			return playRound();
+		}
+
+		
+	} 
+
+
+
+</script>
+		
+</body>
+</html>
