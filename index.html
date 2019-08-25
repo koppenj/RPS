@@ -8,8 +8,8 @@
 	<script type="text/javascript">
 
 	
-
-	function computerPlay(){
+		
+function computerPlay(){
 
 		let randomNumber = Math.floor(Math.random()* 3);
 
@@ -31,12 +31,30 @@
 		else {
 			return "Error Error";
 		}
-	}	
-
-
-		
+	}
 
 		
+function game(){
+
+	let roundCount = 0;
+	let playerScore = 0;
+	let computerScore = 0;
+
+	
+
+	for (roundCount = 0; roundCount < 5;){
+
+		playRound();
+	}
+
+	if (roundCount = 4){
+		return "Final results:"+ " " + "You:"+ " " + playerScore + " " + "to"+ " " + "Computer"+ " " + computerScore;
+		
+	}
+
+	
+
+
 	function playRound(playerSelection, computerSelection){
 
 		
@@ -46,27 +64,51 @@
 
 
 		if (computerSelection == "rock" && playerSelection == "scissors"){
+	
+			roundCount++;
+			computerScore++;
 			return "Rock beats scissors, the computer wins!";
 		}
 
 		else if (computerSelection == "rock" && playerSelection == "paper"){
+
+			roundCount++;
+			playerScore++;
 			return "Paper beats rock, you win!";
 		}
 
 		else if (computerSelection == "paper" && playerSelection =="rock"){
+	
+			roundCount++;
+			computerScore++;
 			return "Paper beats rock, the computer wins!";
 		}
 
 		else if (computerSelection == "paper" && playerSelection =="scissors"){
+	
+			roundCount++;
+			playerScore++;
 			return "Scissors beats paper, you win!";
 		}
 
 		else if (computerSelection == "scissors" && playerSelection == "rock"){
+
+			roundCount++;
+			playerScore++;
 			return "Rock beats scissors, you win!";
 		}
 
 		else if (computerSelection == "scissors" && playerSelection == "paper"){
+	
+			roundCount++;
+			computerScore++;
 			return "Scissors beats paper, the computer wins!";
+		}
+
+		else if (computerSelection == playerSelection){
+
+			roundCount++;
+			return "Tie game!";
 		}
 
 		else {
@@ -76,7 +118,7 @@
 
 		
 	} 
-
+}
 
 
 </script>
