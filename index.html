@@ -36,17 +36,21 @@ function computerPlay(){
 		
 function game(){
 
-	let roundCount = 0;
-	let playerScore = 0;
-	let computerScore = 0;
+	
+		let roundCount = 0;
+		let playerScore = 0;
+		let computerScore = 0;
 
 	
 
-	for (roundCount = 0; roundCount < 5;){
+	for (roundCount = 0; roundCount < 5; roundCount++){
 
-		playRound();
+
+		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
+		computerSelection = computerPlay();
+		
+
 	}
-
 
 	
 
@@ -54,60 +58,59 @@ function game(){
 	function playRound(playerSelection, computerSelection){
 
 		
-		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
-		computerSelection = computerPlay();
-
+		
 
 
 		if (computerSelection == "rock" && playerSelection == "scissors"){
 	
-			roundCount++;
 			computerScore++;
+			
 			return "Rock beats scissors, the computer wins!";
 		}
 
 		else if (computerSelection == "rock" && playerSelection == "paper"){
 
-			roundCount++;
 			playerScore++;
+
 			return "Paper beats rock, you win!";
 		}
 
 		else if (computerSelection == "paper" && playerSelection =="rock"){
 	
-			roundCount++;
 			computerScore++;
+
 			return "Paper beats rock, the computer wins!";
 		}
 
 		else if (computerSelection == "paper" && playerSelection =="scissors"){
 	
-			roundCount++;
 			playerScore++;
+
 			return "Scissors beats paper, you win!";
 		}
 
 		else if (computerSelection == "scissors" && playerSelection == "rock"){
 
-			roundCount++;
 			playerScore++;
+
 			return "Rock beats scissors, you win!";
 		}
 
 		else if (computerSelection == "scissors" && playerSelection == "paper"){
 	
-			roundCount++;
 			computerScore++;
+
 			return "Scissors beats paper, the computer wins!";
 		}
 
 		else if (computerSelection == playerSelection){
 
-			roundCount++;
+
 			return "Tie game!";
 		}
 
 		else {
+
 			alert( "Something didn't go right" );
 			return playRound();
 		}
@@ -115,6 +118,9 @@ function game(){
 		
 	} 
 
+	return "Final Score" + " " + "You:"+ playerScore + " " + "Computer:"+ " " + computerScore;
+
+	
 
 }
 
