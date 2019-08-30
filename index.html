@@ -7,88 +7,80 @@
 	
 	<script type="text/javascript">
 	
-		
 function computerPlay(){
-		let randomNumber = Math.floor(Math.random()* 3);
+	
+	let randomNumber = Math.floor(Math.random()* 3);
 		
-		switch (randomNumber){
-			case 0: return "rock";
-<<<<<<< HEAD
-			case 1: return "paper";
-			case 2: return "scissors";
-=======
+	switch (randomNumber){
 
-			case 1: return "paper";
+		case 0: return "rock";
 
-			case 2: return "scissors";
+		case 1: return "paper";
+	
+		case 2: return "scissors";
 
->>>>>>> 2ee3a351bd147be3722e2a1af4afe9109e04af57
-			default: return "Error";
-		}
+		default: return "Error";
 	}
-		
+}
+	
+
 function game(){
 	
-		let roundCount = 0;
-		let playerScore = 0;
-		let computerScore = 0;
+	let playerScore = 0;
+	let computerScore = 0;
+
+	for (let roundCount =0 ; roundCount <5;roundCount++){
+	playRound();
+}
+
 	
-	for (roundCount = 0; roundCount < 5; roundCount++){
+
+	function playRound(playerSelection, computerSelection){
+
+
 		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
 		computerSelection = computerPlay();
-		console.log(playRound(playerSelection, computerSelection));
-		
-	}
-	
-	function playRound(playerSelection, computerSelection){
 		
 		
-		if (computerSelection == "rock" && playerSelection == "scissors"){
+		if ((computerSelection == "rock" && playerSelection == "scissors")||
+			(computerSelection == "paper" && playerSelection =="rock")||
+			(computerSelection == "scissors" && playerSelection == "paper")){
+		
 	
-			computerScore++;
-			
-			return "Rock beats scissors, the computer wins!";
+			console.log( computerSelection + " beats "+ playerSelection + ". The computer wins!");
+			return computerScore++;
+
 		}
-		else if (computerSelection == "rock" && playerSelection == "paper"){
-			playerScore++;
-			return "Paper beats rock, you win!";
+
+		else if ((computerSelection == "rock" && playerSelection == "paper")||
+			(computerSelection == "paper" && playerSelection =="scissors")||
+			(computerSelection == "scissors" && playerSelection == "rock")){
+
+		
+			console.log( playerSelection + " beats "+ computerSelection + ". You win!");
+			return playerScore++;
 		}
-		else if (computerSelection == "paper" && playerSelection =="rock"){
-	
-			computerScore++;
-			return "Paper beats rock, the computer wins!";
-		}
-		else if (computerSelection == "paper" && playerSelection =="scissors"){
-	
-			playerScore++;
-			return "Scissors beats paper, you win!";
-		}
-		else if (computerSelection == "scissors" && playerSelection == "rock"){
-			playerScore++;
-			return "Rock beats scissors, you win!";
-		}
-		else if (computerSelection == "scissors" && playerSelection == "paper"){
-	
-			computerScore++;
-			return "Scissors beats paper, the computer wins!";
-		}
+
 		else if (computerSelection == playerSelection){
-			return playerSelection + " and " + computerSelection + " Tie game!";
+
+			console.log(playerSelection + " versus " + computerSelection + ". Tie game!");
+			return "TIE";
 		}
+		
 		else {
 			alert( "Something didn't go right" );
 			return playRound();
 		}
 		
 	} 
-	return "Final Score" + " " + "You:"+ playerScore + " " + "Computer:"+ " " + computerScore;
+	
+
+	return "Final Score " + "You: " + playerScore + " Computer: " + computerScore;
 	
 }
 
-<<<<<<< HEAD
-console.log(game());
-=======
->>>>>>> 2ee3a351bd147be3722e2a1af4afe9109e04af57
+
+
 </script>
 		
 </body>
