@@ -6,125 +6,78 @@
 <body>
 	
 	<script type="text/javascript">
-
 	
 		
 function computerPlay(){
-
 		let randomNumber = Math.floor(Math.random()* 3);
-
-		if (randomNumber == 0){
-			return  "rock";
-			
-		}
-
-		else if (randomNumber == 1){
-			return  "paper";
-			
-		}
-
-		else if (randomNumber == 2){
-			return  "scissors";
-			
-		}
-
-		else {
-			return "Error Error";
+		
+		switch (randomNumber){
+			case 0: return "rock";
+			case 1: return "paper";
+			case 2: return "scissors";
+			default: return "Error";
 		}
 	}
-
 		
 function game(){
-
 	
 		let roundCount = 0;
 		let playerScore = 0;
 		let computerScore = 0;
-
 	
-
 	for (roundCount = 0; roundCount < 5; roundCount++){
-
-
 		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
 		computerSelection = computerPlay();
+		console.log(playRound(playerSelection, computerSelection));
 		
-
 	}
-
 	
-
-
 	function playRound(playerSelection, computerSelection){
-
 		
 		
-
-
 		if (computerSelection == "rock" && playerSelection == "scissors"){
 	
 			computerScore++;
 			
 			return "Rock beats scissors, the computer wins!";
 		}
-
 		else if (computerSelection == "rock" && playerSelection == "paper"){
-
 			playerScore++;
-
 			return "Paper beats rock, you win!";
 		}
-
 		else if (computerSelection == "paper" && playerSelection =="rock"){
 	
 			computerScore++;
-
 			return "Paper beats rock, the computer wins!";
 		}
-
 		else if (computerSelection == "paper" && playerSelection =="scissors"){
 	
 			playerScore++;
-
 			return "Scissors beats paper, you win!";
 		}
-
 		else if (computerSelection == "scissors" && playerSelection == "rock"){
-
 			playerScore++;
-
 			return "Rock beats scissors, you win!";
 		}
-
 		else if (computerSelection == "scissors" && playerSelection == "paper"){
 	
 			computerScore++;
-
 			return "Scissors beats paper, the computer wins!";
 		}
-
 		else if (computerSelection == playerSelection){
-
-
-			return "Tie game!";
+			return playerSelection + " and " + computerSelection + " Tie game!";
 		}
-
 		else {
-
 			alert( "Something didn't go right" );
 			return playRound();
 		}
-
 		
 	} 
-
 	return "Final Score" + " " + "You:"+ playerScore + " " + "Computer:"+ " " + computerScore;
-
 	
-
 }
 
-
+console.log(game());
 </script>
 		
 </body>
