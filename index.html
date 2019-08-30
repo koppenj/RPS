@@ -75,8 +75,17 @@ function game(){
 	} 
 	
 
-	return "Final Score " + "You: " + playerScore + " Computer: " + computerScore;
-	
+	if(computerScore > playerScore){
+		return "You lose! " + computerScore + " to " + playerScore;
+	}
+
+	else if (playerScore > computerScore){
+		return "You Win! " + playerScore + " to " + computerScore;
+	}
+
+	else{
+	return "Tie Game! " + playerScore + " to " + computerScore;
+	}
 }
 
 
