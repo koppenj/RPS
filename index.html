@@ -2,87 +2,22 @@
 <html>
 <head>
 	<title>Rock, Paper, Scissors!</title>
+	<link rel="stylesheet" type="css" href="./style.css">
 </head>
+
 <body>
-<script type="text/javascript">
-	
-	function computerPlay() {
-		
-		let randomNumber = Math.floor(Math.random()* 3);
-		
-		switch (randomNumber){
-			case 0: return "rock";
-			case 1: return "paper";
-			case 2: return "scissors";
-		default: return "Error";
-		}
-	}
-	
 
-	function game(){
-	  let playerScore = 0;
-	  let computerScore = 0;
-	
-	  playRound();
+	<div class="instruction">
+		<h2>Choose Wisely:</h2>
+	</div>
 
-	
-
-	function playRound(playerSelection, computerSelection){
+	<div class="playerChoice">
+		<button>Rock</button>
+		<button>Paper</button>
+		<button>Scissors</button>
+	</div>
 
 
-		playerSelection = prompt("What's your choice? Rock, Paper, or Scissors?").toLowerCase();
-		computerSelection = computerPlay();
-		
-		
-		if ((computerSelection == "rock" && playerSelection == "scissors")||
-			(computerSelection == "paper" && playerSelection =="rock")||
-			(computerSelection == "scissors" && playerSelection == "paper")){
-		
-	
-			console.log( computerSelection + " beats "+ playerSelection + ". The computer wins!");
-			return computerScore++;
-
-		}
-
-		else if ((computerSelection == "rock" && playerSelection == "paper")||
-			(computerSelection == "paper" && playerSelection =="scissors")||
-			(computerSelection == "scissors" && playerSelection == "rock")){
-
-		
-			console.log( playerSelection + " beats "+ computerSelection + ". You win!");
-			return playerScore++;
-		}
-
-		else if (computerSelection == playerSelection){
-
-			console.log(playerSelection + " versus " + computerSelection + ". Tie game!");
-			return "TIE";
-		}
-		
-		else {
-			alert( "Something didn't go right" );
-			return playRound();
-		}
-		
-	} 
-	
-
-	if(computerScore > playerScore){
-		return "You lose! " + computerScore + " to " + playerScore;
-	}
-
-	else if (playerScore > computerScore){
-		return "You Win! " + playerScore + " to " + computerScore;
-	}
-
-	else{
-	return "Tie Game! " + playerScore + " to " + computerScore;
-	}
-}
-
-
-
-</script>
-		
+<script src= "default.js"></script>
 </body>
 </html>
