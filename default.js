@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Rock, Paper, Scissors!</title>
-</head>
-<body>
-<script type="text/javascript">
-	
+
+//Generates the computer's choice
+
 	function computerPlay() {
 		
 		let randomNumber = Math.floor(Math.random()* 3);
@@ -18,7 +13,7 @@
 		}
 	}
 	
-
+//initializes score and plays a round
 	function game(){
 	  let playerScore = 0;
 	  let computerScore = 0;
@@ -26,6 +21,7 @@
 	  playRound();
 
 	
+// Compares choices to determine outcome and proper notification
 
 	function playRound(playerSelection, computerSelection){
 
@@ -66,6 +62,7 @@
 		
 	} 
 	
+// When round limit is met, this returns the final tally
 
 	if(computerScore > playerScore){
 		return "You lose! " + computerScore + " to " + playerScore;
@@ -82,7 +79,3 @@
 
 
 
-</script>
-		
-</body>
-</html>
