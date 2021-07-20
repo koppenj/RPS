@@ -1,13 +1,14 @@
 
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection;
 
 //Start a round when user makes a pick
 const buttons = document.querySelectorAll('button')
 	buttons.forEach((button) => {
 		button.addEventListener('click', () => {
-			let playerSelection = button.id
-			playRound();
+			
+				playRound(button.id);
 		})
 		
 	});
@@ -29,9 +30,6 @@ function computerPlay() {
 }
 
 
-	
-
-
 
 
 	
@@ -39,13 +37,10 @@ function computerPlay() {
 
 // Compares choices to determine outcome and proper notification
 
-	function playRound() {
+	function playRound(playerSelection) {
 		
 		computerSelection = computerPlay();
-		const userPick = document.querySelectorAll('button');
-			userPick.forEach((button) => {
-				 playerSelection = button.id
-			});
+		
 
 		
 
