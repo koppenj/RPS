@@ -42,12 +42,6 @@ function computerPlay() {
 		computerSelection = computerPlay();
 		
 
-		
-
-		
-		
-		
-
 		if ((computerSelection == "rock" && playerSelection == "scissors")||
 			(computerSelection == "paper" && playerSelection =="rock")||
 			(computerSelection == "scissors" && playerSelection == "paper")){
