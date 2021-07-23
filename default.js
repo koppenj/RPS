@@ -40,14 +40,18 @@ function computerPlay() {
 	function playRound(playerSelection) {
 		
 		computerSelection = computerPlay();
+
+		const showResult = document.querySelector('#result');
+		
+			
 		
 
 		if ((computerSelection == "rock" && playerSelection == "scissors")||
 			(computerSelection == "paper" && playerSelection =="rock")||
-			(computerSelection == "scissors" && playerSelection == "paper")){
+			(computerSelection == "scissors" && playerSelection == "paper")) {
 		
-	
-			console.log( computerSelection + " beats "+ playerSelection + ". The computer wins!");
+			showResult.textContent =  ` ${computerSelection} beats ${playerSelection}. The computer wins! `; 
+			
 			return computerScore++;
 
 		}
@@ -57,18 +61,18 @@ function computerPlay() {
 			(computerSelection == "scissors" && playerSelection == "rock")){
 
 		
-			console.log( playerSelection + " beats "+ computerSelection + ". You win!");
+			showResult.textContent = ` ${playerSelection} beats ${computerSelection}. You win! `;
 			return playerScore++;
 		}
 
 		else if (computerSelection == playerSelection){
 
-			console.log(playerSelection + " versus " + computerSelection + ". Tie game!");
+			showResult.textContent = `${playerSelection} versus ${computerSelection}. Tie Game `;
 			return "TIE";
 		}
 		
 		else {
-			alert( "Something didn't go right" );
+			alert( " Something didn't go right, select again " );
 			return playRound();
 		}
 		
