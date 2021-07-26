@@ -3,9 +3,19 @@ let playerScore = 0;
 let computerScore = 0;
 
 
+const endGameResult = document.querySelector('#endResult');
+const userScoreUpdate = document.getElementById('player');
+const computerScoreUpdate = document.getElementById('computer');
+const showResult = document.querySelector('#result');
 
 
-
+const buttons = document.querySelectorAll('button')
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {		
+			playRound(button.id);
+		})
+		
+	});
 
 
 function computerPlay() {
@@ -23,23 +33,16 @@ function computerPlay() {
 
 function scoreUpdate() {
 
-	const userScoreUpdate = document.getElementById('player');
-	const computerScoreUpdate = document.getElementById('computer');
-	
 	userScoreUpdate.textContent = ` ${playerScore} `;
 	computerScoreUpdate.textContent = ` ${computerScore} `;
 	
-	}
+}
 
 
 function playRound(playerSelection) {
 		
 	computerSelection = computerPlay();
 
-	const showResult = document.querySelector('#result');
-		
-	
-		
 
 	if ((computerSelection == "rock" && playerSelection == "scissors") ||
 		(computerSelection == "paper" && playerSelection =="rock") ||
@@ -49,9 +52,6 @@ function playRound(playerSelection) {
 		computerScore++;
 		scoreUpdate();
 		checkScore();
-		
-		
-		
 
 		}
 
@@ -64,15 +64,12 @@ function playRound(playerSelection) {
 			scoreUpdate();
 			checkScore();
 			
-			
-			
 		}
 
 		else if (computerSelection == playerSelection) {
 			
 			showResult.textContent = `${playerSelection} versus ${computerSelection}. Tie Game `;
 			
-
 		}
 		
 		else {
@@ -80,43 +77,48 @@ function playRound(playerSelection) {
 			alert( " Something didn't go right, select again " );
 
 			return playRound();
-		}
 
-	
-		
+		}
 }
-        
-//Start a round when user makes a pick
-const buttons = document.querySelectorAll('button')
-	buttons.forEach((button) => {
-		button.addEventListener('click', () => {
+
+function endGame() {
+	if ( computerScore || playerScore == 5 ) {
+
+		buttons.forEach((button) => {
+			button.disabled = true;
 			
-				playRound(button.id);
-		})
+		});
 		
-	});
+	}
+}
+
 
 function checkScore() {
-
-	const endGameResult = document.querySelector('#endResult');
 	
-		if(computerScore >= 5 ) {
+	if(computerScore >= 5 ) {
 
-			buttons.removeEventListener('click', playRound );
-			endGameResult.textContent = "You Lose" ;
-		}
+		endGameResult.textContent = "You Lose" ;
+		endGame();
+		
 
-		else if (playerScore >= 5 ) {
+	}
 
-			buttons.removeEventListener('click', playRound); 
-			endGameResult.textContent = "You Win" ;
-		}
+	else if (playerScore >= 5 ) {
 
-		else {
-			return
-		}
-	
+		endGameResult.textContent = "You Win" ;
+		endGame();
+
+	}
+
+	else {
+
+		return;
+
+	}
 }
+
+
+
 	
 
 
